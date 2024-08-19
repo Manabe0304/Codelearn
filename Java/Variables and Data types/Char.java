@@ -3,6 +3,7 @@ public class Variable {
 		char c = 'x';
 		System.out.println(c);
 
+		//Chuyen tu ki tu a sang ki tu d thong qua so nguyen tuong ung
 		char d = 'a' + 3;
 		System.out.println(d);
 
