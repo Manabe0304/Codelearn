@@ -6,6 +6,7 @@ public class Variable {
 		char d = 'a' + 3;
 		System.out.println(d);
 
+		//Chuyen ki tu thanh so nguyen tuong ung
 		System.out.println("a = " + (int) 'a');
 		System.out.println("b = " + (int) 'b');
 		System.out.println("c = " + (int) 'c');
