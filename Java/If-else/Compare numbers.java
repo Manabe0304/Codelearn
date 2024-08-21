@@ -15,6 +15,6 @@ public class Statement {
 	        System.out.println("a is not equal to 0 and b is not equal to 0");
 		} else {
 	    	System.out.println("a is equal to 0 or b is equal to 0");
-	    }
+	        }
     }
 }
