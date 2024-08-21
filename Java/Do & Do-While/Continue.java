@@ -7,12 +7,12 @@ public class Loop {
         int n = sc.nextInt();
         int k = sc.nextInt();
         for (int i = 1; i <= n; i++) {
-			        if (i % k == 0) {
-				          continue;
-			        }
-			  System.out.print(i + " ");
-		    }
+	     if (i % k == 0) {
+		 continue;
+	     }
+	     System.out.print(i + " ");
 	}
+    }
 }
 
 //Cach 2
@@ -23,14 +23,14 @@ public class Loop {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int k = sc.nextInt();
-		    int i = 1;
-		    while (i <= n) {
-		         if (i % k == 0) {
-		             i++;
-		             continue;
-		         }
-		    System.out.print(i + " ");
-		    i++;
-		}
+	int i = 1;
+	while (i <= n) {
+	    if (i % k == 0) {
+		i++;
+		continue;
+	    }
+	    System.out.print(i + " ");
+	    i++;
 	}
+    }
 }
