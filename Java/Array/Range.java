@@ -13,9 +13,11 @@ public class Array {
 		}
 
 		for (int k = 0; k < n; k++) {
-			if (arr[k] >= i && arr[i] <= j) {
+			if (arr[k] >= i && arr[k] <= j) {
 				System.out.print(arr[k] + " ");
 			}
 		}
+		
+		sc.close();
 	}
 }
