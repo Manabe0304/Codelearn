@@ -10,7 +10,7 @@ public class Variable {
 		int x = 5;
 		int y = 4;
 
-		boolean z = a > b;
+		boolean z = x > y;
 		System.out.println(z);
 	}
 }
