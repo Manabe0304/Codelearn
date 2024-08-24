@@ -14,9 +14,9 @@ public class Array {
 		for(char c = 'a'; c <= 'z'; c++) {
 			s2 = s2.replace(c + "", "");
 		}
-        for (char c = 'A'; c <= 'Z'; c++) {
-            s2 = s2.replace(c + "", ""); 
-        }    
+                for (char c = 'A'; c <= 'Z'; c++) {
+                        s2 = s2.replace(c + "", ""); 
+                }    
 		System.out.println(s2);
 		sc.close();
 	}
