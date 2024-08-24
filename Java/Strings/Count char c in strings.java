@@ -8,7 +8,7 @@ public class Array {
 		int answer = 0;
 		for (int i = 0; i < s.length(); i++) {
 			if(s.charAt(i) == c) {
-				answer ++;
+				answer++;
 			}
 		}
 		System.out.print(answer);
