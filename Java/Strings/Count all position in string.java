@@ -1,4 +1,4 @@
-//Cach 1
+//Cach 1 Dem cac vi tri cua ki tụ do (Phan biet chu thuong va hoa)
 import java.util.Scanner;
 
 public class Array {
@@ -25,7 +25,7 @@ public class Array {
     }
 }
 
-//Cach 2
+//Cach 2: Dem cac vi tri cua ki tụ do (Khong ke chu hoa hay thuong)
 import java.util.Scanner;
 
 public class Array {
