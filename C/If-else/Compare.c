@@ -8,5 +8,11 @@ int main() {
 	} else {
 		printf("a is smaller than b");
 	}
-	return 0;
+	
+        if (a != 0 && b != 0) {
+                printf("a is not equal to 0 and b is not equal to 0");
+        } else {
+                printf("a is equal to 0 or b is equal to 0");
+        }
+        return 0;
 }
