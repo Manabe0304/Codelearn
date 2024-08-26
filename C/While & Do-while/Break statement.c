@@ -1,3 +1,4 @@
+//Cach 1
 #include<stdio.h>
 
 int main() {
@@ -12,6 +13,7 @@ int main() {
     return 0;
 }
 
+//Cach 2
 #include<stdio.h>
 
 int main() {
