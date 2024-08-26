@@ -2,7 +2,7 @@
 
 int main() {
     int n;
-    int answer = 0;
+    int count = 0;
     scanf("%d", &n);
     for (int i = 1; i <= n; i++) {
         // If n is divisible by i, i is the divisor of n
@@ -13,9 +13,9 @@ int main() {
     
     for (int i = 1; i <= n; i++) {
         if (n % i == 0) {
-            answer++;
+            count++;
         }
     }
-    printf("\n%d", answer);
+    printf("\n%d", count);
     return 0;
 }
