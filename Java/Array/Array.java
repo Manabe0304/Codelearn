@@ -6,6 +6,7 @@ public class Array {
 		int[] a = new int[10];
 
 		for (int i = 0; i < 10; i++) {
+			System.out.print("a[" + i + "] = " );
 			a[i] = sc.nextInt();
 		}
 
