@@ -31,7 +31,7 @@ Age: 24
 ```
 Chương trình trên tạo ra một đối tượng học sinh, sau đó thực hiện gán tên và tuổi cho đối tượng này và hiển thị thông tin của đối tượng ra màn hình. 
 
-Ví dụ này chỉ để bạn có cái nhìn qua và cảm nhận được về phương pháp lập trình hướng đối tượng nên đừng lo nếu bạn không hiểu được các đoạn code. Có thể thấy lập trình hướng đối tượng là phương pháp mà giải quyết các bài toán thông qua các đối tượng. Trước khi đi sâu hơn, bạn cần biết một số khái niệm cơ bản trong lập trình hướng đối tượng sau:
+Ví dụ này chỉ để bạn có cái nhìn qua và cảm nhận được về phương pháp lập trình hướng đối tượng nên đừng lo nếu bạn không hiểu được các đoạn code. Có thể thấy lập trình hướng đối tượng là phương pháp mà giải quyết các bài toán thông qua các đối tượng. Trước khi đi sâu hơn, ta cần biết một số khái niệm cơ bản trong lập trình hướng đối tượng sau:
 
 - Lớp (class) là nơi định nghĩa thông tin về các đối tượng, bạn cũng có thể hiểu lớp là một kiểu dữ liệu mà biến của kiểu dữ liệu này được coi như một đối tượng. Như trong ví dụ trên thì `Student` là lớp dùng để mô tả thông tin về các đối tượng học sinh.
 Ví dụ về lớp: Học sinh, giáo viên, xe ô tô, …
