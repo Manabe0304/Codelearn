@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Method {
 	public static int sumOfArray(int[] arr, int n) {
-	    if (n == 1) return arr[0];
-	    return arr[n - 1] + sumOfArray(arr, n - 1);
+	        if (n == 1) return arr[0];
+	        return arr[n - 1] + sumOfArray(arr, n - 1);
 	}
 
 	public static void main(String[] args) {
