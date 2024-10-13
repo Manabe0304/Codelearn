@@ -48,9 +48,9 @@ public class Entry {
 }
 ```
 Kết quả khi chạy chương trình:
-
-`Constructor Called`
-
+```
+Constructor Called
+```
 Có thể thấy constructor đã tự động được gọi tới khi bạn khởi tạo đối tượng lớp `Student`.
 
 Nếu một lớp không được khai báo constructor thì chương trình sẽ tự động tạo ra một constructor mặc định. Ví dụ nếu bạn khai báo lớp `Student` giống như sau:
