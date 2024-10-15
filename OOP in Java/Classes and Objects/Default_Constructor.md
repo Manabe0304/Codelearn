@@ -45,4 +45,3 @@ Kết quả khi chạy chương trình:
 ```
 Welcome to Codelearn!
 ```
-Vậy đáp án là **Compile Time Error** (lỗi biên dịch).
