@@ -5,9 +5,9 @@ class Entry {
 		System.out.println(ArrayCalculator.sumOfArray(arr1));
 		System.out.println(ArrayCalculator.sumOfArray(arr2));
 
-		System.out.println(ArrayCalculator.minOfArray(arr1));
-		System.out.println(ArrayCalculator.minOfArray(arr2));
-		System.out.println(ArrayCalculator.maxOfArray(arr1));
-		System.out.println(ArrayCalculator.maxOfArray(arr2));
+		System.out.println("Max: " + ArrayCalculator.minOfArray(arr1));
+		System.out.println("Max: " + ArrayCalculator.minOfArray(arr2));
+		System.out.println("Min: " + ArrayCalculator.maxOfArray(arr1));
+		System.out.println("Min: " + ArrayCalculator.maxOfArray(arr2));
 	}
 }
