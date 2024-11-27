@@ -4,5 +4,10 @@ class Entry {
 		double[] arr2 = new double[] {1.3, 4.2, 6.7};
 		System.out.println(ArrayCalculator.sumOfArray(arr1));
 		System.out.println(ArrayCalculator.sumOfArray(arr2));
+
+		System.out.println(ArrayCalculator.minOfArray(arr1));
+		System.out.println(ArrayCalculator.minOfArray(arr2));
+		System.out.println(ArrayCalculator.maxOfArray(arr1));
+		System.out.println(ArrayCalculator.maxOfArray(arr2));
 	}
 }
