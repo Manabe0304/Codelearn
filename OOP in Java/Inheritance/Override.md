@@ -58,5 +58,6 @@ Hello from SuperClass
 Hello from SubClass
 ```
 Ngoài ra, phương thức `static` sẽ không thể bị ghi đè và đối với các phương thức `non-static` bạn có thể ngăn không cho lớp con ghi đè bằng cách thêm từ khóa `final` giống như sau:
+
 ![image](https://github.com/user-attachments/assets/1339a798-5570-4059-af03-2a3e79303c51)
 
