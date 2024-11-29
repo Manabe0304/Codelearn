@@ -1,5 +1,4 @@
 ## Lý thuyết
-Để làm được bài này bạn cần biết được 2 đặc điểm của tính kế thừa.
 
 ### Lớp con không được thừa hưởng các thuộc tính và phương thức private từ lớp cha.
 
