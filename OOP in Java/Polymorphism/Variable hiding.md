@@ -78,3 +78,38 @@ Kết quả khi chạy chương trình:
 10
 20
 ```
+
+## Bài tập
+Bạn hãy cho biết kết quả khi chạy chương trình sau:
+```
+package OOP;
+
+public class Entry {
+	public static void main(String[] args) {
+		SuperClass a = new SubClass();
+		System.out.println(a.x);
+		a.display();
+	}
+}
+
+class SuperClass{
+	int x = 10;
+	public void display() {
+		System.out.println(x);
+	}
+}
+
+class SubClass extends SuperClass{
+	int x = 20;
+	@Override
+	public void display() {
+		System.out.println(x);
+	}
+}
+```
+### Hướng dẫn
+Như bạn đã học về ghi đè phương thức và Variable Hiding, trong ví dụ trên thuộc tính `x` ở lớp cha và phương thức `display()` ở lớp con sẽ được gọi tới, do đó kết quả của chương trình trên sẽ là:
+```
+10
+20
+```
