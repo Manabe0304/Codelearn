@@ -1,4 +1,4 @@
-Bài tập
+## Bài tập
 Bạn hãy tạo ra lớp `Math` với thông tin giống như sau:
 
 ![image](https://github.com/user-attachments/assets/1954cf5c-0145-4738-8b6a-6869443844f0)
