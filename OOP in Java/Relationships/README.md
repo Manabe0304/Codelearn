@@ -79,7 +79,7 @@ Số 1 và ký tự * thể hiện rằng 1 Folder sẽ có nhiều File. Nếu 
 public class ClassA{
 	private ClassB b;
 	public ClassA() {
-		b = new ClsasB();
+		b = new ClassB();
 	}
 }
 ```
