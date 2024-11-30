@@ -10,7 +10,7 @@ Giải thích:
 - `getFullName()` là phương thức trả về `firstName + lastName`.
 - Các phương thức còn lại là các setter và getter.
 
-Chương trình để test lớp Employee trên:
+Chương trình để test lớp `Employee` trên:
 ```
 class Entry {
 	public static void main(String[] args) {
