@@ -41,6 +41,26 @@ Có 3 kiểu số thực dấu phẩy động chính, đó là:
 - `REAL` hoặc `FLOAT8` là số thực dấu phẩy động, được lưu trữ bởi 4 byte.
 - `NUMERIC` hay `NUMERIC(p,s)` là một số thực có p chữ số với số s sau dấu thập phân. Trong PostgreSQL `NUMERIC` và `DECIMAL` là tương đương nhau và có thể thay thế cho nhau.
 
+- **NUMERIC** là một kiểu dữ liệu số trong PostgreSQL dùng để lưu trữ các giá trị số có độ chính xác cao, bao gồm cả phần thập phân. Nó tương tự như kiểu dữ liệu DECIMAL trong các hệ quản trị cơ sở dữ liệu khác.
+
+- **Cú pháp:**
+`NUMERIC(p,s)`
+- **Giải thích:**
+
+  + `p`: Tổng số chữ số của giá trị số, bao gồm cả phần thập phân.
+  + `s`: Số chữ số sau dấu thập phân.
+- **Ví dụ:**
+(dùng SQL)
+
+  + Lưu trữ giá trị số nguyên
+`NUMERIC(5,0)`
+
+  + Lưu trữ giá trị số thập phân với 2 chữ số sau dấu thập phân
+`NUMERIC(10,2)`
+
+  + Lưu trữ giá trị số thập phân với 4 chữ số sau dấu thập phân
+`NUMERIC(15,4)`
+
 #### Ví dụ
 Các kiểu dữ liệu phù hợp nhất cho các cột của bảng client được mô tả bên dưới theo thứ tự:
 
@@ -54,5 +74,38 @@ Các kiểu dữ liệu phù hợp nhất cho các cột của bảng client đ�
 Một kiểu dữ liệu `BOOLEAN` có thể có một trong 3 trạng thái: `true`, `false` hoặc `null`. Bạn sử dụng từ khoá `BOOLEAN` hoặc `BOOL` để khai báo một cột với kiểu dữ liệu `BOOLEAN`.
 
 ### Mặc định của cột Boolean
-Một cột BOOLEAN có mặc định là false rất ít. Trong đa số tình huống, giá trị mặc định sẽ là true. Hãy tưởng tượng một hệ thống quản lý người dùng được xây dựng cho một trang web. Hành vi mặc định là người dùng mới có thể đăng ký truy cập vào trang web. Truy cập này vẫn có sẵn cho đến khi người dùng thể hiện hành vi cộng đồng kém và bị khóa quyền truy cập. Như vậy, cột mô tả quyền có được truy cập hay không trong trường hợp này sẽ được đặt mặc định là true.
+Một cột `BOOLEAN` có mặc định là `false` rất ít. Trong đa số tình huống, giá trị mặc định sẽ là `true`. Hãy tưởng tượng một hệ thống quản lý người dùng được xây dựng cho một trang web. Hành vi mặc định là người dùng mới có thể đăng ký truy cập vào trang web. Truy cập này vẫn có sẵn cho đến khi người dùng thể hiện hành vi cộng đồng kém và bị khóa quyền truy cập. Như vậy, cột mô tả quyền có được truy cập hay không trong trường hợp này sẽ được đặt mặc định là `true`.
 
+#### Ví dụ
+- Cột `poisonous` (có chứa độc) là một cột của một bảng mô tả về các thực vật có độc ở trong cơ sở dữ liệu. -> true
+- Cột `is_closed` (đã đóng) của bảng course mô tả về trạng thái khóa học đó trong cơ sở dữ liệu của một trường đại học.
+
+### Kiểu dữ liệu tạm thời
+Kiểu dữ liệu tạm thời cho phép bạn lưu trữ ngày tháng và/hoặc thời gian. PostgreSQL có 5 kiểu dữ liệu tạm thời chính:
+
+- `DATE` chỉ lưu trữ giá trị của ngày, tháng năm.
+- `TIME` lưu trữ các giá trị thời gian trong ngày.
+- `TIMESTAMP` lưu trữ cả ngày tháng, năm và thời gian trong ngày.
+- `TIMESTAMPTZ` là kiểu dữ liệu dấu thời gian, nhận biết múi giờ. Là viết tắt của dấu thời gian với múi giờ.
+- `INTERVAL` lưu trữ khoảng thời gian.
+- `TIMESTAMPTZ` là phần mở rộng PostgreSQL trên các kiểu dữ liệu tạm thời theo tiêu chuẩn SQL.
+
+#### Ví dụ
+Kiểu dữ liệu phù hợp nhất cho các cột của bảng `appeal` được mô tả bên dưới theo thứ tự:
+
+- Cột `id`: id của các đơn yêu cầu, có giá trị tự động tăng lên đến hàng triệu. -> `SERIAL`
+- Cột `content`: nội dung của đơn yêu cầu. -> `TEXT`
+- Cột `received_on`: ghi lại ngày và thời gian khi nhận được đơn yêu cầu. ->`TIMESTAMP`
+- Cột `approved_on_appeal`: cho biết về trạng thái của quyết định cho vay đã được chấp nhận hay không dựa theo đơn yêu cầu. -> `BOOLEAN`
+- Cột `reviewed`: lưu trữ ngày khi đơn yêu cầu được xem xét. -> `DATE`
+
+### Bài tập
+Người quản lý của bạn đã yêu cầu bạn tạo một bảng có tên là `loan`. Hãy xác định kiểu dữ liệu và thuộc tính chính xác để sử dụng cho các cột của bảng. Cấu trúc của bảng loan được mô tả dưới đây như sau:
+
+- Cột `borrower_id`: id của người cho vay -> `INTEGER`
+- Cột `bank_id`: id của ngân hàng -> `INTEGER`
+- Cột `approval_date`: ngày mà khoản vay ban đầu được phê duyệt. `DATE`
+- Cột `gross_approval`: cho phép số tiền cho vay lên tới 5.000.000 đô. -> `NUMERIC(9,2)`
+- Cột `term_in_months`: thời gian (tính theo tháng) để trả nợ -> `SMALLINT`
+- Cột `revolver_status`:  mô trả việc tiền lãi có xoay vòng hay không, được biểu thị bằng các giá trị true và false -> `BOOLEAN`
+- Cột `initial_interest_rate`: lãi suất ban đầu -> `NUMERIC(4,2)`
