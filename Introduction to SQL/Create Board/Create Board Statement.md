@@ -35,3 +35,10 @@ CREATE TABLE account(
    last_login TIMESTAMP
 );
 ```
+
+CREATE TABLE EMP
+(emp_id INTEGER,
+emp_name VARCHAR(10),
+hire_date DATE DEFAULT CURRENT_DATE,
+salary DECIMAL(7,2),
+comm DECIMAL(7,2) DEFAULT 0.03);
