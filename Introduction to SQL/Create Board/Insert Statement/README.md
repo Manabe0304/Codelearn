@@ -56,3 +56,38 @@ INSERT INTO bảng(cột1,cột2,...)
 SELECT DISTINCT cột1, cột2,...
 FROM bảng_khác WHERE điều_kiện;
 ```
+
+### Trong PostgreSQL, một dãy số là một loại đối tượng cơ sở dữ liệu đặc biệt tạo ra một chuỗi các số nguyên. Một dãy số thường được sử dụng làm cột khóa chính trong bảng.
+
+Khi tạo bảng mới, dãy số có thể được tạo thông qua kiểu dữ liệu `SERIAL` như sau:
+```
+CREATE TABLE table_name(
+    id SERIAL 
+);
+```
+Bằng cách gán `SERIAL` cho cột id, PostgreSQL thực hiện như sau:
+
+- Đầu tiên, tạo một đối tượng dãy số và đặt giá trị tiếp theo được tạo bởi dãy số làm giá trị mặc định cho cột.
+- Thứ hai, thêm một ràng buộc `NOT NULL` vào cột `id` vì một dãy số luôn tạo ra một số nguyên, đó là một giá trị không null.
+- Thứ ba, gán đối tượng sở hữu của chuỗi cho cột `id`; kết quả là, đối tượng dãy số bị xóa khi cột id hoặc bảng bị hủy
+
+#### Ví dụ `SERIAL` trong PostgreSQL
+Câu lệnh sau đây tạo ra bảng `fruits` với cột `id` như là cột `SERIAL`:
+```
+CREATE TABLE fruits(
+   id SERIAL PRIMARY KEY,
+   name VARCHAR NOT NULL
+);
+```
+Tham khảo các ví dụ sau:
+```
+INSERT INTO fruits(name) VALUES('Orange');
+INSERT INTO fruits(id, name) VALUES(DEFAULT,'Apple');
+```
+PostgreSQL chèn hai hàng vào bảng `fruits` với các giá trị cho cột `id` là 1 và 2.
+
+`SELECT * FROM fruits;`
+| id | name |
+|----|------|
+| 1 | Orange |
+| 2 | Apple |
