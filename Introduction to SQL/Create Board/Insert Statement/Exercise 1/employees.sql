@@ -1,9 +1,9 @@
 CREATE TABLE employees(
-  emp_id INTEGER,
-  emp_name VARCHAR(10),
-  hire_date DATE DEFAULT CURRENT_DATE,
+  emp_id VARCHAR(7),
+  emp_name VARCHAR(50),
+  hire_date VARCHAR(10),
   salary DECIMAL(7,2),
-  com DECIMAL(7,2) DEFAULT 0.03
+  com DECIMAL(7,2)
 );
 
 --Insert information of employees to database
