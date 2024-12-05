@@ -1,8 +1,0 @@
--- Chèn dữ liệu duy nhất vào bảng professors
-INSERT INTO professors (first_name, last_name, university_shortname)
-SELECT DISTINCT first_name, last_name, university_shortname
-FROM university_professors;
-
--- Kiểm tra dữ liệu trong bảng professors
-SELECT * FROM professors
-ORDER BY first_name DESC;
