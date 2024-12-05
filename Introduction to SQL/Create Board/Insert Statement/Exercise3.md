@@ -1,3 +1,8 @@
+## Bài tập
+Bảng `university_professors` không chỉ chứa dữ liệu của các giáo sư đại học mà còn chứa dữ liệu của các trường đại học và các tổ chức khác nhau. Vì bạn muốn tách riêng dữ liệu của các giáo sư ra riêng thành một bảng để tiện việc xử lí dữ liệu, nên bạn đã tạo bảng `professors` với 3 cột: `first_name`, `last_name` và `university_shortname` (bảng `university_professors` cũng có 3 cột đấy).
+
+Sau đó, bạn lên kế hoạch để di chuyển dữ liệu từ bảng `university_professors` sang bảng `professors`. Nhưng vì tồn tại một số bản ghi hoàn toàn giống nhau ở cả 3 cột trên, vì thế bạn cần tìm cách chỉ di chuyển những bản ghi có tính duy nhất từ bảng `university_professors` sang bảng `professors`.
+
 CREATE TABLE university_professors (
     first_name VARCHAR(50) NOT NULL, -- Tên giáo sư
     last_name VARCHAR(50) NOT NULL,  -- Họ giáo sư
