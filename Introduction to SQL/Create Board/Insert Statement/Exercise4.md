@@ -1,5 +1,5 @@
 ## Bài tập
-Bạn có thiết kế của bảng `employee`s như sau:
+Bạn có thiết kế của bảng `employees` như sau:
 ```
 CREATE TABLE employees(
     emp_id SERIAL PRIMARY KEY,
