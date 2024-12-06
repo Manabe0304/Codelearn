@@ -40,4 +40,5 @@ Kết quả là chúng ta có cấu trúc của bảng customers như sau:
 | phone	| character varying | 
 | fax	| character varying | 
 | email	| character varying | 
+
 Như bạn thấy, chúng ta đã có các `phone`, `fax`, và cột `email` đã được thêm vào cuối danh sách cột của bảng `customers`. Ngoài ra, từ khóa `PRIMARY KEY` trong ví dụ sẽ được đề cập ở phần tiếp theo.
