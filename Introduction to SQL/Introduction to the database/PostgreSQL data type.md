@@ -15,7 +15,7 @@
 #### 2. VARCHAR
 - Kiểu dữ liệu `VARCHAR` lưu trữ chuỗi các ký tự không bị giới hạn chiều dài. Ngoài ra kiểu `VARCHAR` còn cho phép người dùng đặt ra giới hạn đối với các giá trị dữ liệu được gọi bằng cách mô tả một số nguyên `N`, được đặt trong ngoặc đơn liền sau `VARCHAR`. Ví dụ `VARCHAR(50)`, `VARCHAR(100)`,... 
 - Kiểu `VARCHAR` cho phép các chuỗi có ít hơn `N` ký tự được lưu trữ trong cột. Việc cố gắng chèn một chuỗi có độ dài lớn hơn `N` sẽ dẫn đến lỗi.
-- Việc khai báo là cột có kiểu dữ liệu là `VARCHAR` mà không chỉ định N thì tương đương với khai báo một cột có kiểu dữ liệu là `TEXT`.
+- Việc khai báo là cột có kiểu dữ liệu là `VARCHAR` mà không chỉ định `N` thì tương đương với khai báo một cột có kiểu dữ liệu là `TEXT`.
 #### 3. CHAR
 - Kiểu dữ liệu `CHAR` cũng được sử dụng để thể hiện một chuỗi các ký tự nhưng nó khác với `VARCHAR(N)` ở chỗ các giá trị được lưu trữ trong cột `CHAR(N)` không thay đổi về chiều dài. Nếu một chuỗi được lưu trữ nhỏ hơn độ dài cố định là `N`, khoảng trắng sẽ được thêm vào cuối (bên phải) để đảm bảo chuỗi có độ dài `N`.
 - Một cột `CHAR` không được khai báo `N` mặc định nghĩa là cột đấy chỉ có thể lưu trữ một ký tự. Nghĩa là: `CHAR` tương đương với `CHAR(1)`.
