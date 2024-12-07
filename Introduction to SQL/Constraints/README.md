@@ -84,7 +84,7 @@ CREATE TABLE TABLE (
      PRIMARY KEY (cột_1, cột_2)
 );
 ```
-Thêm ràng buộc `PRIMARY KEY vào bảng hiện có là quy trình tương tự như thêm ràng buộc `UNIQUE` mà bạn đã làm quen từ chương trước:
+Thêm ràng buộc `PRIMARY KEY` vào bảng hiện có là quy trình tương tự như thêm ràng buộc `UNIQUE` mà bạn đã làm quen từ chương trước:
 ```
 ALTER TABLE tên_bảng
 ADD CONSTRAINT  tên_ràng_buộc PRIMARY KEY(tên_cột) 
