@@ -7,7 +7,7 @@ Các ràng buộc toàn vẹn có thể được chia thành ba loại:
 2. Các ràng buộc khóa, ví dụ các khóa chính.
 3. Các ràng buộc tham chiếu, được thi hành thông qua các khóa ngoại.
 ### Tại sao sử dụng ràng buộc?
-Các ràng buộc định hình cấu trúc của dữ liệu. Dữ liệu được nhập bởi  người dùng thường dài dòng và không theo nguyên tắc nào dẫn đến việc sẽ gặp khó khăn trong quá trình xử lí dữ liệu. Vì vậy, việc cung cấp các ràng buộc sẽ mang đến tính nhất quán cho dữ liệu, có nghĩa là một hàng trong một bảng nhất định có cấu trúc chính xác giống như hàng tiếp theo, v.v. Nói chung, chúng giúp giải quyết rất nhiều vấn đề về chất lượng của dữ liệu.
+Các ràng buộc định hình cấu trúc của dữ liệu. Dữ liệu được nhập bởi người dùng thường dài dòng và không theo nguyên tắc nào dẫn đến việc sẽ gặp khó khăn trong quá trình xử lí dữ liệu. Vì vậy, việc cung cấp các ràng buộc sẽ mang đến tính nhất quán cho dữ liệu, có nghĩa là một hàng trong một bảng nhất định có cấu trúc chính xác giống như hàng tiếp theo, v.v. Nói chung, chúng giúp giải quyết rất nhiều vấn đề về chất lượng của dữ liệu.
 
 Đối với một bảng đã tồn tại, ta có thể sử dụng lệnh `ADD CONSTRAINT` để thực hiện thêm ràng buộc như sau
 ```
@@ -15,6 +15,7 @@ ALTER TABLE table_name
 ADD CONSTRAINT constraint_name constraint_definition;
 ```
 
+## Lý thuyết
 ### Các kiểu dữ liệu
 Bạn đã tìm hiểu về 4 loại dữ liệu chính trong PosgreSQL trước đây. Đối với những ràng buộc thuộc tính là các loại dữ liệu thì có thể được chỉ định cho từng cột của bảng.
 
@@ -52,13 +53,14 @@ Hoặc cho bảng đã tồn tại rồi như sau:
 
 `ALTER TABLE tên_bảng ADD CONSTRAINT tên_ràng_buộc UNIQUE(tên_cột);`
 
+## Lý thuyết
 Thông thường, bảng trong cơ sở dữ liệu có một thuộc tính hoặc kết hợp nhiều thuộc tính mà giá trị của chúng là giá trị duy nhất trên toàn bộ bảng. Các thuộc tính như vậy xác định một bản ghi duy nhất.
 
 Một bảng chỉ chứa các bản ghi khác biệt nhau (tính duy nhất của các bản ghi), có nghĩa là sự kết hợp của tất cả các thuộc tính là một khóa trong chính nó. Tuy nhiên, nó vẫn chưa được gọi là khóa chính, mà được gọi là một siêu khóa (superkey). Nếu xóa một hoặc một số thuộc tính trong tập hợp các thuộc tính đó cho đến khi không thể xóa được nữa mà tập hợp thuộc tính đấy vẫn xác định tính duy nhất của các bản ghi thì tập hợp đấy là khóa.
 
 **Vì vậy, khóa luôn là tối giản nhất.**
 
-#### Khóa chính
+### Khóa chính
 `Khóa chính` là một trong những khái niệm quan trọng nhất trong thiết kế cơ sở dữ liệu.
 
 - Hầu như mọi bảng cơ sở dữ liệu có một khóa chính. Mục đích chính của khóa chính là xác định tính duy nhất của các bản ghi trong một bảng.
@@ -88,6 +90,7 @@ ALTER TABLE tên_bảng
 ADD CONSTRAINT  tên_ràng_buộc PRIMARY KEY(tên_cột) 
 ```
 
+## Lý thuyết
 ### Khóa ngoại
 Mối quan hệ giữa các bảng được thực hiện bằng các `khóa ngoại` - các cột của bảng này được chỉ định trỏ đến `khóa chính` của bảng khác.
 
@@ -149,5 +152,58 @@ CREATE TABLE a
    column_a VARCHAR(50),
    ...,
    b_id INTEGER REFERENCES b (id) ON DELETE CASCADE
+);
+```
+
+## Lý thuyết
+Ràng buộc `CHECK` là một loại ràng buộc cho phép bạn chỉ định nếu một giá trị trong cột phải đáp ứng một yêu cầu cụ thể. Ràng buộc `CHECK` sử dụng biểu thức Boolean để đánh giá các giá trị trước khi chèn hoặc cập nhật vào cột. Nếu các giá trị vượt qua kiểm tra, PostgreSQL sẽ chèn hoặc cập nhật các giá trị này vào cột.
+
+### Xác định ràng buộc `CHECK` PostgreSQL khi tạo bảng mới
+
+Câu lệnh sau tạo bảng `employees`
+```
+CREATE TABLE employees (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR (50),
+    last_name VARCHAR (50),
+    birth_date DATE CHECK (birth_date > '1900-01-01'),
+    joined_date DATE CHECK (joined_date > birth_date),
+    salary NUMERIC CHECK(salary > 0)
+);
+```
+Bảng `employees` có ba ràng buộc `CHECK` như sau:
+
+- Đầu tiên, ngày sinh (`birth_date`) của nhân viên phải lớn hơn 01/01/1900.
+- Thứ hai, ngày tham gia (`joined_date`) phải lớn hơn ngày sinh (`birth_date`).
+- Thứ ba, mức lương phải lớn hơn 0.
+
+Hãy thử chèn một hàng mới vào bảng `employees` như sau:
+```
+INSERT INTO employees (first_name, last_name, birth_date, joined_date, 	salary)
+VALUES ('John', 'Doe', '1972-01-01', '2015-07-01', -100000);
+```
+Câu lệnh trên đã cố gắng chèn một mức lương âm vào cột salary. Vì thế mà PostgreSQL đã trả về thông báo lỗi sau:
+
+`ERROR:  new row for relation "employees" violates check constraint "employees_salary_check"`
+
+Việc chèn đã không được thực hiện thành công do ràng buộc CHECK trên cột `salary` chỉ chấp nhận các giá trị dương.
+
+### Xác định ràng buộc `CHECK` PostgreSQL trong các bảng hiện có
+
+Giả sử, bạn có một bảng hiện có trong cơ sở dữ liệu có tên là `price_list`
+```
+CREATE TABLE prices_list (
+ id SERIAL PRIMARY KEY,
+ product_id INTEGER NOT NULL,
+ price NUMERIC NOT NULL,
+ discount NUMERIC NOT NULL,
+ valid_from DATE NOT NULL,
+ valid_to DATE NOT NULL
+);
+```
+Bây giờ, bạn sử dụng câu lệnh `ALTER TABLE` để thêm các ràng buộc `CHECK` vào bảng `price_list` rằng `price` và `discount` phải lớn hơn 0 và `discount` nhỏ hơn price. Như vậy chúng ta cần sử dụng biểu thức Boolean chứa toán tử `AND` để thêm ràng buộc như sau:
+```
+ALTER TABLE prices_list ADD CONSTRAINT price_discount_check CHECK ( 
+	price > 0 AND discount >= 0 AND price > discount 
 );
 ```
