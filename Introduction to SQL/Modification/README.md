@@ -37,3 +37,18 @@ SELECT * FROM link;
 | 4	| http://www.facebook.com	| Facebook | (Null)	| (Null) | 2013-06-02 | 
 
 Mệnh đề `WHERE` chỉ cập nhật các hàng có giá trị trong cột `last_update` là `NULL`.
+
+## Lý thuyết
+Đây là một cách để cập nhật các cột của bảng dựa trên các giá trị trong bảng khác:
+```
+UPDATE bảng_a
+SET cột_cần_cập_nhật = bảng_b.cột_cập_nhật_theo
+FROM bảng_b
+WHERE điều_kiện_1 AND điều_kiện_2 OR ...;
+```
+Truy vấn này thực hiện như sau:
+
+1. Đối với mỗi hàng trong `bảng_a`, tìm hàng tương ứng trong `bảng_b` trong đó `điều_kiện_1`, `điều_kiện_2`, v.v., được đáp ứng.
+2. Đặt giá trị của `cột_cập_nhật` thành giá trị của `cột_cập_nhật_theo` (từ hàng tương ứng đó).
+
+Các điều kiện thường so sánh các cột khác của cả hai bảng, ví dụ: `bảng_a.cột_a = bảng_b.cột_b`. Tất nhiên, truy vấn này chỉ có ý nghĩa nếu chỉ có một hàng khớp trong `bảng_b`.
