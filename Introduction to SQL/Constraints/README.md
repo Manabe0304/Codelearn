@@ -207,3 +207,18 @@ ALTER TABLE prices_list ADD CONSTRAINT price_discount_check CHECK (
 	price > 0 AND discount >= 0 AND price > discount 
 );
 ```
+
+## Lý thuyết
+Câu lệnh `DROP CONSTRAINT` dùng để xóa các ràng buộc `UNIQUE`, `PRIMARY KEY`, `FOREIGN KEY`, hay `CHECK`.
+
+Cú pháp để loại bỏ một ràng buộc trong PostgreSQL là:
+
+`ALTER TABLE tên_bảng DROP CONSTRAINT tên_ràng_buộc;`
+
+Cú pháp để loại bỏ nhiều ràng buộc trong một bảng là:
+```
+ALTER TABLE tên_bảng 
+DROP CONSTRAINT tên_ràng_buộc1,
+DROP CONSTRAINT tên_ràng_buộc2,
+...;
+```
