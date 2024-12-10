@@ -1,7 +1,29 @@
 ## Lý thuyết
-Chuẩn hóa dữ liệu (**Data normalization**) được thực hiện trên các bảng trong cơ sở dữ liệu để bảo vệ khỏi sự dị thường của dữ liệu và đảm bảo tính toàn vẹn của dữ liệu.
+**Chuẩn hóa dữ liệu (Data Normalization)** là một kỹ thuật trong thiết kế cơ sở dữ liệu nhằm giảm thiểu sự dư thừa dữ liệu, đảm bảo tính toàn vẹn và tính nhất quán của dữ liệu. Quá trình này giúp các bảng được tổ chức một cách khoa học và tránh các bất thường về dữ liệu. Dưới đây là nội dung tóm tắt và giải thích chi tiết:
 
-Nếu một bảng không được chuẩn hóa đúng cách và tồn tại sự dư thừa dữ liệu thì nó sẽ không chỉ ăn thêm dung lượng bộ nhớ mà còn gây khó khăn cho việc thao tác đối với cơ sở dữ liệu. Các hiện tượng chèn, cập nhật và xóa dị thường sẽ xảy ra rất thường xuyên nếu cơ sở dữ liệu không được chuẩn hóa. Để hiểu những bất thường này, chúng ta hãy lấy một ví dụ về bảng `Student` như sau:
+### Mục đích của chuẩn hóa dữ liệu
+- **Giảm dư thừa dữ liệu (Data Redundancy)**: Loại bỏ việc lưu trữ dữ liệu giống nhau ở nhiều nơi.
+- **Tăng tính toàn vẹn của dữ liệu**: Ngăn ngừa các lỗi hoặc mâu thuẫn giữa các bảng trong cơ sở dữ liệu.
+- **Đơn giản hóa quản lý dữ liệu**: Làm cho cơ sở dữ liệu dễ hiểu hơn và hỗ trợ tốt hơn cho các thao tác như thêm, sửa, xóa dữ liệu.
+
+### Những bất thường nếu không chuẩn hóa
+1. Chèn dị thường (Insertion anomalies):
+- Xảy ra khi cần thêm dữ liệu mà phải lặp lại thông tin không cần thiết.
+- Ví dụ: Khi thêm 100 sinh viên ngành Khoa học Máy tính, thông tin về ngành, HOD, và số điện thoại văn phòng bị lặp lại 100 lần.
+2. Cập nhật dị thường (Updation anomalies):
+- Xảy ra khi cần sửa thông tin ở nhiều nơi, nếu bỏ sót có thể dẫn đến dữ liệu không nhất quán.
+- Ví dụ: Nếu HOD (ông X) thay đổi, toàn bộ bản ghi của sinh viên ngành CSE phải được cập nhật. Nếu bỏ sót một bản ghi, dữ liệu sẽ không đồng bộ.
+3. Xóa dị thường (Deletion anomalies):
+- Xảy ra khi xóa một bản ghi dẫn đến mất thông tin liên quan.
+- Ví dụ: Nếu xóa thông tin sinh viên cuối cùng của ngành CSE, thông tin về ngành này cũng sẽ bị mất.
+
+### Lợi ích của chuẩn hóa dữ liệu
+- Giảm trùng lặp dữ liệu: Lưu thông tin một lần, tránh lưu ở nhiều nơi.
+- Tăng tính nhất quán: Mọi thay đổi chỉ cần thực hiện tại một nơi duy nhất, giảm thiểu rủi ro mâu thuẫn dữ liệu.
+- Cấu trúc rõ ràng hơn: Dữ liệu được tổ chức sao cho các đối tượng liên quan được ánh xạ một cách hợp lý và dễ quản lý hơn.
+
+### Ví dụ minh họa
+#### Bảng không chuẩn hóa (Student):
 
 | rollno | name	| branch | hod | office_tel |
 |--------|------|--------|-----|------------|
@@ -10,16 +32,31 @@ Nếu một bảng không được chuẩn hóa đúng cách và tồn tại s�
 | 403	| Ckon | CSE | Mr. X | 53337 | 
 | 404	| Dkon | CSE | Mr. X | 53337 | 
 
-Trong bảng trên, ta có dữ liệu của 4 sinh viên ngành Khoa học máy tính. Như chúng ta có thể thấy, dữ liệu có các trường `branch`, `hod` (viết tắt của Head of department) và `office_tel` lặp đi lặp lại đối với các sinh viên học cùng một chi nhánh trong trường đại học, đây là dư thừa dữ liệu (`Data Redundancy`).
+#### Vấn đề:
+- Dư thừa dữ liệu: branch, hod, và office_tel lặp lại ở mỗi bản ghi.
+- Bất thường: Như đã phân tích ở trên (chèn, cập nhật, xóa).
+#### Bảng chuẩn hóa:
 
-Giả sử nếu phải chèn dữ liệu của 100 sinh viên cùng ngành, thì thông tin chi nhánh sẽ được lặp lại cho tất cả 100 sinh viên đó. Đây chính là chèn dị thường (`Insertion anomalies`).
+Bảng Student:
 
-Nếu ông X rời trường đại học thì sao? Hoặc không còn là HOD của khoa khoa học máy tính? Trong trường hợp đó, tất cả các hồ sơ học sinh sẽ phải được cập nhật, và nếu nhầm lẫn thì ta sẽ bỏ lỡ bất kỳ hồ sơ nào, nó sẽ dẫn đến sự không thống nhất dữ liệu. Đây là cập nhật dị dường (`Updation anomaly`).
+| rollno | name	| branch |
+|--------|------|--------|
+| 401	| Akon | CSE |
+| 402	| Bkon | CSE |
+| 403	| Ckon | CSE |
+| 404	| Dkon | CSE |
 
-Trong bảng `Student`, hai thông tin khác nhau được lưu giữ cùng nhau, Thông tin sinh viên và Thông tin chi nhánh. Do đó, vào cuối năm học, nếu hồ sơ của sinh viên bị xóa, ta cũng sẽ mất thông tin chi nhánh. Đây là xóa dị thường (`Deletion anomaly`).
+Bảng Branch:
 
-Để làm rõ lý do tại sao chúng ta cần biết về chủ đề này, chuẩn hóa dữ liệu có các lợi ích sau.
+| branch_code	| branch_name	| hod	| office_tel |
+|-------------|-------------|-----|------------|
+| CSE	| Computer Science | Mr.X	| 53337 | 
 
-- Giảm sự trùng lặp về dữ liệu
-- Tính nhất quán của dữ liệu được tăng lên để các thực thể (entities) không có sự  xung đột về dữ liệu trong các bảng khác nhau.
-- Dữ liệu được sắp xếp sao cho các đối tượng dữ liệu ánh xạ tốt hơn tới các bản ghi trong bảng.
+### Kết luận
+Chuẩn hóa dữ liệu không chỉ giúp giảm dung lượng lưu trữ mà còn hỗ trợ tối ưu hóa hiệu suất và đảm bảo tính chính xác của cơ sở dữ liệu. Việc áp dụng chuẩn hóa đúng cách là nền tảng để xây dựng một hệ thống quản lý dữ liệu hiệu quả và bền vững.
+
+
+
+
+
+
