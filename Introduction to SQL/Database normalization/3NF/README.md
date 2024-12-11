@@ -20,7 +20,7 @@ Dưới đây là bảng ban đầu, lưu thông tin về các khóa học, giá
 | 162 | Physics	| Maggie Winters | 244 |
 | 321 | Spanish I | Jeremy Smith | 309 | 
 | 497 | History I | Sarah Williams | 313 | 
-| 613 | Spanish II | Jeremy Smith | 309 | 
+| 613 | Spanish II | J eremy Smith | 309 | 
 
 ### Vấn đề trong bảng ban đầu
 **1. Phụ thuộc bắc cầu:**
@@ -53,18 +53,20 @@ Dưới đây là bảng ban đầu, lưu thông tin về các khóa học, giá
 Thêm cột `teacher_id` làm khóa ngoại tham chiếu đến bảng `teacher`.
 ### Thiết kế cơ sở dữ liệu mới
 **Bảng `teacher`:**
-id	name	room_num
-1	Maggie Winters	244
-2	Jeremy Smith	309
-3	Sarah Williams	313
+| id | name	| room_num | 
+|----|------|----------|
+| 1	| Maggie Winters | 244 | 
+| 2	| Jeremy Smith | 309 |
+| 3	| Sarah Williams | 313 | 
 
 **Bảng `course`:**
-id	name	teacher_id
-157	Algebra	1
-162	Physics	1
-321	Spanish I	2
-497	History I	3
-613	Spanish II	2
+| id | name	| teacher_id |
+|----|------|------------|
+| 157 | Algebra	| 1 | 
+| 162 | Physics	| 1 | 
+| 321 | Spanish I | 2 |
+| 497 | History I | 3 | 
+| 613 | Spanish II | 2 |
 
 ### SQL để triển khai thiết kế mới
 ```
