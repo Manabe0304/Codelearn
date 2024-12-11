@@ -25,31 +25,32 @@ Dưới đây là bảng ban đầu, lưu thông tin về các khóa học, giá
 ### Vấn đề trong bảng ban đầu
 **1. Phụ thuộc bắc cầu:**
 
-teacher phụ thuộc vào id (khóa chính).
-num (số phòng) phụ thuộc vào teacher.
-Do đó, num phụ thuộc bắc cầu vào id thông qua teacher.
+- `teacher` phụ thuộc vào `id` (khóa chính).
+- `num` (số phòng) phụ thuộc vào `teacher`.
+- Do đó, `num` phụ thuộc bắc cầu vào `id` thông qua `teacher`.
 
 **2. Khó khăn khi cập nhật:**
 
-Nếu giáo viên "Maggie Winters" chuyển sang phòng khác, chúng ta phải cập nhật tất cả các hàng có teacher = Maggie Winters. Điều này có thể dẫn đến lỗi nếu bỏ sót một số hàng.
+- Nếu giáo viên "Maggie Winters" chuyển sang phòng khác, chúng ta phải cập nhật tất cả các hàng có `teacher = Maggie Winters`. Điều này có thể dẫn đến lỗi nếu bỏ sót một số hàng.
 
 **3. Khó khăn khi thêm mới:**
 
-Không thể thêm một giáo viên mới nếu giáo viên đó chưa được gán khóa học, vì bảng yêu cầu thông tin cả về id, name, teacher, và num.
+- Không thể thêm một giáo viên mới nếu giáo viên đó chưa được gán khóa học, vì bảng yêu cầu thông tin cả về `id`, `name`, `teacher`, và `num`.
 
 **4. Khó khăn khi xóa:**
 
-Nếu xóa tất cả các khóa học của một giáo viên, thông tin về giáo viên (tên và số phòng) cũng bị mất.
+- Nếu xóa tất cả các khóa học của một giáo viên, thông tin về giáo viên (tên và số phòng) cũng bị mất.
 ### Chuyển đổi sang 3NF
 Để loại bỏ phụ thuộc bắc cầu, chúng ta cần:
 
 **1. Tách thông tin giáo viên ra bảng riêng:**
 
-Tạo bảng teacher, lưu thông tin về giáo viên và số phòng.
-Mỗi giáo viên sẽ có một ID duy nhất (khóa chính).
-**2. Thay thế teacher và num trong bảng khóa học:**
+- Tạo bảng `teacher`, lưu thông tin về giáo viên và số phòng.
+- Mỗi giáo viên sẽ có một ID duy nhất (khóa chính).
 
-Thêm cột teacher_id làm khóa ngoại tham chiếu đến bảng teacher.
+**2. Thay thế `teacher` và `num` trong bảng khóa học:**
+
+Thêm cột `teacher_id` làm khóa ngoại tham chiếu đến bảng `teacher`.
 ### Thiết kế cơ sở dữ liệu mới
 **Bảng `teacher`:**
 id	name	room_num
@@ -84,20 +85,21 @@ CREATE TABLE course (
 ### Lợi ích của 3NF
 **1. Loại bỏ phụ thuộc bắc cầu:**
 
-room_num (số phòng) giờ chỉ phụ thuộc trực tiếp vào teacher_id.
-Các cột không khóa (name, room_num) chỉ phụ thuộc vào khóa chính trong bảng của chúng.
+- `room_num` (số phòng) giờ chỉ phụ thuộc trực tiếp vào `teacher_id`.
+- Các cột không khóa (`name`, `room_num`) chỉ phụ thuộc vào khóa chính trong bảng của chúng.
 
 **2. Giảm dư thừa dữ liệu:**
 
-Thông tin về phòng học của giáo viên chỉ lưu trữ một lần trong bảng teacher.
+- Thông tin về phòng học của giáo viên chỉ lưu trữ một lần trong bảng `teacher`.
 
 **3. Dễ dàng cập nhật:**
 
-Nếu một giáo viên chuyển sang phòng khác, chỉ cần cập nhật trong bảng teacher.
+- Nếu một giáo viên chuyển sang phòng khác, chỉ cần cập nhật trong bảng `teacher`.
 
 **4. Dễ dàng thêm hoặc xóa:**
 
-Có thể thêm giáo viên mới mà không cần gán ngay khóa học.
-Nếu xóa khóa học, thông tin giáo viên vẫn còn.
+- Có thể thêm giáo viên mới mà không cần gán ngay khóa học.
+- Nếu xóa khóa học, thông tin giáo viên vẫn còn.
+
 ## Kết luận
 Chuyển đổi cơ sở dữ liệu sang 3NF giúp tăng tính toàn vẹn dữ liệu, loại bỏ các vấn đề liên quan đến phụ thuộc bắc cầu, và làm cho cơ sở dữ liệu dễ dàng quản lý, bảo trì hơn.
