@@ -20,7 +20,7 @@ Dưới đây là bảng ban đầu, lưu thông tin về các khóa học, giá
 | 162 | Physics	| Maggie Winters | 244 |
 | 321 | Spanish I | Jeremy Smith | 309 | 
 | 497 | History I | Sarah Williams | 313 | 
-| 613 | Spanish II | J eremy Smith | 309 | 
+| 613 | Spanish II | Jeremy Smith | 309 | 
 
 ### Vấn đề trong bảng ban đầu
 **1. Phụ thuộc bắc cầu:**
