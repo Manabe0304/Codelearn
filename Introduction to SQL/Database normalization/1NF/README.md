@@ -49,7 +49,7 @@ Mỗi sinh viên có nhiều khóa học, nhưng các khóa học này được 
 | 132 | Huong | Dinh Lan | SWE | 103 | 
 | 135 | Nam	| Bui Cong | Summit 1 | 105 | 
 | 135 | Nam	| Bui Cong | Summit 2 | 105 | 
-| 135 | Nam | Bui Cong | SWQ | 105
+| 135 | Nam | Bui Cong | SWQ | 105 |
 
 ### Lợi ích khi đạt 1NF
 **1. Dễ dàng thêm, sửa, xóa dữ liệu:**
