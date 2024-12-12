@@ -90,3 +90,40 @@ CREATE TABLE textbook (
 - Có thể thêm hoặc xóa thông tin nhà xuất bản mà không ảnh hưởng đến dữ liệu sách.
 ## Kết luận
 Việc chuyển đổi sang 2NF giúp cơ sở dữ liệu giảm thiểu trùng lặp, tăng tính toàn vẹn và dễ dàng quản lý hơn. Dạng chuẩn này là một bước quan trọng để đảm bảo cơ sở dữ liệu được thiết kế khoa học và hiệu quả.
+
+## Bài tập
+Các nhân viên quán cà phê đã nghe ngóng được tình hình đang diễn ra tại trường trung học để sắp xếp dữ liệu cho các hoạt động quan trọng của trường sắp đến. Đặc biệt, họ muốn theo dõi các lựa chọn bữa ăn khác nhau có sẵn trong suốt năm học. Với sự giúp đỡ của nhân viên IT, bảng `meal` dưới đây được tạo ra như sau:
+```
+CREATE TABLE meal (
+    id INTEGER, --id duy nhất của món ăn
+    title VARCHAR(50) NOT NULL -- tên của món ăn
+    ingredients VARCHAR(150), -- danh sách các nguyên liệu của món ăn
+    avg_student_rating NUMERIC, -- điểm xếp hạng trung bình từ sinh viên
+    date_served DATE, -- ngày được phục vụ
+    total_calories SMALLINT NOT NULL -- tổng số calo
+);
+```
+Sử dụng kiến thức của bạn về chuẩn hóa cơ sở dữ liệu, hãy cung cấp một thiết kế tốt hơn cho cơ sở dữ liệu.
+```
+CREATE TABLE ingredient (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE meal (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    avg_student_rating NUMERIC,
+    total_calories SMALLINT NOT NULL
+);
+
+CREATE TABLE meal_DATE (
+    meal_id INTEGER REFERENCES meal(id),
+    DATE_served DATE NOT NULL
+);
+
+CREATE TABLE meal_ingredient (
+    meal_id INTEGER REFERENCES meal(id),
+    ingredient_id INTEGER REFERENCES ingredient(id)
+);
+```
