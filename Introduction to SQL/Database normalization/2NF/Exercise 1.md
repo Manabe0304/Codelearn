@@ -112,4 +112,4 @@ CREATE TABLE meal_ingredient (
 - **Tránh dư thừa dữ liệu**: Tách các nguyên liệu và món ăn ra bảng riêng biệt, tránh trùng lặp thông tin.
 - **Dễ dàng mở rộng**: Có thể thêm món ăn, nguyên liệu, hoặc lịch phục vụ mới mà không cần thay đổi cấu trúc bảng.
 - **Quản lý hiệu quả**: Dễ dàng xác định lịch phục vụ món ăn và nguyên liệu cần thiết.
-- **Tính toàn vẹn dữ liệu**: Sử dụng khóa ngoại (FOREIGN KEY) để đảm bảo mối quan hệ giữa các bảng luôn đúng.
+- **Tính toàn vẹn dữ liệu**: Sử dụng **khóa ngoại (FOREIGN KEY)** để đảm bảo mối quan hệ giữa các bảng luôn đúng.
