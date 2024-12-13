@@ -36,7 +36,7 @@ Mỗi sinh viên có nhiều khóa học, nhưng các khóa học này được 
 ### Để đáp ứng 1NF, bảng cần được tổ chức lại như sau:
 
 #### Các thay đổi cần thiết
-`. Tách cột `courses` thành các giá trị nguyên tử, mỗi hàng chỉ chứa một khóa học duy nhất.
+1. Tách cột `courses` thành các giá trị nguyên tử, mỗi hàng chỉ chứa một khóa học duy nhất.
 2. Tách cột `name` thành `first_name` và `last_name` để rõ ràng hơn.
 
 ### Bảng sau khi chuẩn hóa (đáp ứng 1NF):
