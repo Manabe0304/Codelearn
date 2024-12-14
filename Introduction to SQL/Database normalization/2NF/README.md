@@ -90,7 +90,7 @@ CREATE TABLE textbook (
 - Có thể thêm hoặc xóa thông tin nhà xuất bản mà không ảnh hưởng đến dữ liệu sách.
 ## Kết luận
 Việc chuyển đổi sang 2NF giúp cơ sở dữ liệu giảm thiểu trùng lặp, tăng tính toàn vẹn và dễ dàng quản lý hơn. Dạng chuẩn này là một bước quan trọng để đảm bảo cơ sở dữ liệu được thiết kế khoa học và hiệu quả.
-
+```
 CREATE TABLE meal_ingredient (
     meal_id INTEGER REFERENCES meal(id),
     ingredient_id INTEGER REFERENCES ingredient(id)
