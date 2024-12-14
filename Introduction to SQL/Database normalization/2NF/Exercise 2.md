@@ -41,10 +41,13 @@ Nó sẽ hiển thị tất cả các cột của bảng `loan` và bảng `bank
 
 ## Code SQL
 ```
+-- Bước 1: Tạo bảng bank
 CREATE TABLE bank (
     id SMALLINT PRIMARY KEY,
     name VARCHAR(100) NOT NULL
 );
+
+-- Bước 2: Tạo bảng loan
 CREATE TABLE loan (
     approval_date DATE NOT NULL,
     bank_id SMALLINT NOT NULL,
@@ -56,19 +59,30 @@ CREATE TABLE loan (
     term_in_months SMALLINT,
     intial_interest_rate NUMERIC(10,2) NOT NULL,
     PRIMARY KEY (approval_date, bank_id, borrower_id),
-    FOREIGN KEY (bank_id) REFERENCES bank(id) 
+    FOREIGN KEY (bank_id) REFERENCES bank(id)
 );
 
--- Add a new column called 'zip' to the 'bank' table 
+-- Bước 3: Thêm dữ liệu vào bảng bank
+INSERT INTO bank (id, name) VALUES
+(1, 'ACB'),
+(2, 'BIDV');
+
+-- Bước 4: Thêm dữ liệu vào bảng loan
+INSERT INTO loan (approval_date, bank_id, bank_zip, borrower_id, gross_approval, max_amount, program, term_in_months, intial_interest_rate) VALUES
+('1990-03-21', 1, '70000', 9, 25000.00, 5000000.00, '7a', 36, 10.12),
+('1997-02-09', 2, '10000', 2, 126030.12, 6000000.00, '504', 60, 6.3),
+('2002-01-13', 2, '10000', 2, 30000.90, 6000000.00, '504', 48, 5.15);
+
+-- Bước 5: Thêm cột zip vào bảng bank với giá trị mặc định 'TBD'
 ALTER TABLE bank
 ADD COLUMN zip VARCHAR(10) DEFAULT 'TBD';
 
--- Remove a corresponding column from 'loan' to satisfy 2NF
+-- Bước 6: Xóa cột bank_zip khỏi bảng loan để đáp ứng 2NF
 ALTER TABLE loan
 DROP COLUMN bank_zip;
 
---Show all the columns of loan and bank table using INNER JOIN
-SELECT * FROM loan l  
-INNER JOIN  bank b ON b.id = l.bank_id 
+-- Bước 7: Thực hiện INNER JOIN để hiển thị tất cả các cột từ loan và bank
+SELECT * FROM loan l
+INNER JOIN bank b ON b.id = l.bank_id
 ORDER BY approval_date, bank_id;
 ```
