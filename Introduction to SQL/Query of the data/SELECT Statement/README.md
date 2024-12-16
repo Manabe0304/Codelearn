@@ -28,3 +28,16 @@ Chúng ta có bảng `actor` như sau:
 | NICK | WAHLBERG | 
 | ED | CHASE |
 
+Lý thuyết
+Sau khi sử dụng câu lệnh `SELECT` với một biểu thức. Chúng ta có thể bỏ qua mệnh đề `FROM` vì câu lệnh không đề cập đến bất kỳ bảng nào:
+
+`SELECT 5 * 3 AS result;`
+
+Đây là đầu ra
+
+| result |
+|--------|
+| 15 |
+
+Nếu một toán hạng của bất kỳ toán tử nào là `NULL`, thì kết quả thường là `NULL`.
+
