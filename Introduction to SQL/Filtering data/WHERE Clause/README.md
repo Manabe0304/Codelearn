@@ -64,3 +64,27 @@ Kết quả sẽ trả về là:
 |----------|------------|-----------|
 | 1	| PENELOPE | GUINESS |
 | 2	| NICK | WAHLBERG |
+
+## Dưới đây là trình tự xử lý các câu lệnh SQL:
+
+1. **FROM**: Bước đầu tiên trong một câu lệnh `SELECT` là xác định bảng (hoặc bảng kết hợp) từ đó bạn muốn truy xuất dữ liệu. Dòng `FROM` xác định nguồn dữ liệu của truy vấn.
+
+2. **WHERE**: Nếu bạn muốn áp dụng điều kiện để lọc các dòng từ bảng, bạn có thể sử dụng phần `WHERE`. Điều này cho phép bạn chọn chỉ những dòng thỏa mãn một điều kiện cụ thể.
+
+3. **GROUP BY**: Nếu bạn muốn nhóm dữ liệu dựa trên giá trị của một hoặc nhiều cột, bạn có thể sử dụng phần `GROUP BY`. Điều này thường đi kèm với các hàm tổng hợp như `SUM, AVG, COUNT, MAX, MIN` để tính toán thông tin thống kê trên các nhóm dữ liệu.
+
+4. **HAVING**: Nếu bạn muốn lọc kết quả của `GROUP BY` bằng một điều kiện sau khi đã thực hiện nhóm, bạn có thể sử dụng phần `HAVING`.
+
+5. **SELECT**: Đây là nơi bạn xác định cột hoặc biểu thức mà bạn muốn lấy từ kết quả truy vấn. `SELECT` xác định dữ liệu cụ thể bạn muốn truy xuất.
+
+6. **ORDER BY**: Nếu bạn muốn sắp xếp kết quả truy vấn theo một hoặc nhiều cột, bạn có thể sử dụng phần `ORDER BY`. Điều này xác định thứ tự sắp xếp (`ASC` hoặc `DESC`) và cột sắp xếp.
+
+7. **LIMIT / OFFSET**: Nếu bạn muốn hạn chế số lượng kết quả trả về hoặc bỏ qua một số hàng đầu tiên, bạn có thể sử dụng phần `LIMIT` và `OFFSET`.
+
+8. **JOIN**: Nếu bạn muốn kết hợp dữ liệu từ nhiều bảng, bạn có thể sử dụng các phép `JOIN` như `INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN` để kết hợp dữ liệu từ các bảng khác nhau.
+
+9. **UNION / INTERSECT / EXCEPT**: Nếu bạn muốn kết hợp hoặc so sánh kết quả của nhiều câu truy vấn, bạn có thể sử dụng các toán tử như `UNION`, `INTERSECT` và `EXCEPT`.
+
+10. **Subqueries (Câu lệnh con)**: Bạn có thể sử dụng câu lệnh con để thực hiện một truy vấn nhỏ bên trong truy vấn lớn hơn.
+
+11. **Functions (Hàm)**: SQL cung cấp nhiều hàm tích hợp sẵn như `SUM, AVG, COUNT, MAX, MIN`, và các hàm người dùng tự định nghĩa để thực hiện các phép tính hoặc biểu đồ dữ liệu.
