@@ -28,7 +28,7 @@ Chúng ta có bảng `actor` như sau:
 | NICK | WAHLBERG | 
 | ED | CHASE |
 
-Lý thuyết
+## Lý thuyết
 Sau khi sử dụng câu lệnh `SELECT` với một biểu thức. Chúng ta có thể bỏ qua mệnh đề `FROM` vì câu lệnh không đề cập đến bất kỳ bảng nào:
 
 `SELECT 5 * 3 AS result;`
