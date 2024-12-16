@@ -42,3 +42,25 @@ Kết quả đầu ra sẽ là:
 |----------|------------|-----------|
 | 3 | ED | CHASE |
 
+## Lý thuyết
+Nếu bạn muốn khớp một chuỗi với bất kỳ chuỗi nào trong một danh sách, hãy sử dụng toán tử `IN`. Ví dụ: câu lệnh sau trả về khách hàng có tên đầu tiên là `Penelope` hoặc `Nick`:
+```
+SELECT first_name, last_name
+FROM actor
+WHERE first_name IN ('PENELOPE','NICK');
+```
+Cho bảng `actor`:
+
+| actor_id | first_name	| last_name |
+|----------|------------|-----------|
+| 1	| PENELOPE | GUINESS |
+| 2	| NICK | WAHLBERG |
+| 3 | ED | CHASE |
+| 4	| JENNIFER | DAVIS |
+
+Kết quả sẽ trả về là:
+
+| actor_id | first_name	| last_name |
+|----------|------------|-----------|
+| 1	| PENELOPE | GUINESS |
+| 2	| NICK | WAHLBERG |
