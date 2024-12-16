@@ -3,7 +3,7 @@ CREATE TABLE transcript (
   point SMALLINT
 );
 
-INSERT into multiplication (a, b)
+INSERT into transcript (a, b)
 VALUES 
 (1, 8.333), 
 (2, 9.55), 
