@@ -51,4 +51,5 @@ ORDER BY bcolor, fcolor;
 | red	| red |
 | red	| null |
 | null | red |
+
 Vì chúng ta đã chỉ định cả hai cột `bcolor` và `fcolor` trong mệnh đề `SELECT DISTINCT`, PostgreSQL đã kết hợp các giá trị trong cả hai cột `bcolor` và `fcolor` để đánh giá tính duy nhất của các hàng. Truy vấn trả về sự kết hợp độc đáo của `bcolor` và `fcolor` từ bảng t1. Lưu ý rằng bảng t1 có hai hàng có giá trị màu đỏ trong cả cột `bcolor` và `fcolor`. Khi chúng ta áp dụng `DISTINCT` cho cả hai cột, một hàng đã bị xóa khỏi tập kết quả vì nó là bản sao.
