@@ -22,6 +22,7 @@ Với bảng `actor` như sau:
 Kết quả trả về sẽ là:
 
 | first_name | last_name |
+|------------|-----------|
 | JENNIFER | DAVIS |
 
 Lưu ý rằng mệnh đề `WHERE` chứa một biểu thức đặc biệt: `first_name`, toán tử `LIKE` và một chuỗi chứa một phần trăm (%) ký tự, được gọi là một mẫu (pattern).
