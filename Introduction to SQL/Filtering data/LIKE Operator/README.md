@@ -54,3 +54,65 @@ FROM actor
 WHERE first_name LIKE '_HER%';
 ```
 Biểu thức khớp với khách hàng có tên bắt đầu bằng bất kỳ ký tự đơn nào, được theo sau bởi chuỗi ký tự `HER` và kết thúc bằng bất kỳ số lượng ký tự nào.
+
+## Lý thuyết
+### Ví dụ về NOT LIKE trong PostgreSQL
+Truy vấn sau đây trả về khách hàng có `first_name` không bắt đầu bằng `Jen`:
+```
+SELECT first_name, last_name
+FROM actor
+WHERE first_name NOT LIKE 'JEN%';
+```
+Lưu ý rằng chúng ta sử dụng toán tử `NOT LIKE` trong mệnh đề `WHERE`.
+
+Đối với bảng `actor` như sau:
+
+| actor_id | first_name	| last_name |
+|----------|------------|-----------|
+| 1	| PENELOPE | GUINESS |
+| 2	| NICK | WAHLBERG |
+| 3	| ED | CHASE |
+| 4	| JENNIFER | DAVIS |
+| 5	| JOHNNY | LOLLOBRIGIDA |
+
+Kết quả trả về sẽ là:
+
+| actor_id | first_name	| last_name |
+|----------|------------|-----------|
+| 1	| PENELOPE | GUINESS |
+| 2	| NICK | WAHLBERG |
+| 3	| ED | CHASE |
+| 5	| JOHNNY | LOLLOBRIGIDA |
+
+### Phần mở rộng về toán tử LIKE trong PostgreSQL
+PostgreSQL cung cấp toán tử `ILIKE` hoạt động như toán tử `LIKE`. Ngoài ra, toán tử `ILIKE` khớp với giá trị không phân biệt chữ hoa chữ thường. Xem ví dụ sau:
+```
+SELECT first_name, last_name
+FROM actor
+WHERE first_name ILIKE 'BAR%';
+```
+Đối với bảng `actor` như sau:
+
+| actor_id | first_name	| last_name |
+|----------|------------|-----------|
+| 1	| BARR | Guiness |
+| 2	| Barr | Guiness |
+| 3	| Ed | Chase |
+| 4	| JENNIFER | DAVIS |
+| 5	| JOHNNY | LOLLOBRIGIDA |
+
+Kết quả trả về sẽ là:
+
+| actor_id | first_name	| last_name |
+|----------|------------|-----------|
+| 1	| BARR | Guiness |
+| 2	| Barr | Guiness |
+
+Mẫu `BAR%` khớp với bất kỳ chuỗi nào bắt đầu bằng `BAR`, `Bar`, `BaR`, v.v. Nếu bạn sử dụng toán tử `LIKE` thay vào đó, truy vấn sẽ không trả về bất kỳ hàng nào.
+
+PostgreSQL cũng cung cấp một số toán tử hoạt động như toán tử `LIKE`, `NOT LIKE`, `ILIKE` và `NOT ILIKE` như dưới đây:
+
+- ~~ tương đương với `LIKE`
+- ~~* tương đương với `ILIKE`
+- !~~ tương đương với `NOT LIKE`
+- !~~* tương đương với `NOT ILIKE`
