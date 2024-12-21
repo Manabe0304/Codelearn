@@ -50,9 +50,15 @@ Bảng `payment`
 
 Mỗi khách hàng có thể có 0 hoặc nhiều khoản thanh toán (payment). Mỗi khoản thanh toán thuộc về một và chỉ một khách hàng. Trường `customer_id` thiết lập liên kết giữa hai bảng. Bạn có thể sử dụng mệnh đề `INNER JOIN` để tham gia bảng `customer` vào bảng `payment` như sau:
 ```
-SELECT customer.customer_id, first_name, last_name, amount, payment_date
+SELECT 
+    customer.customer_id, 
+    customer.first_name, 
+    customer.last_name, 
+    payment.amount, 
+    payment.payment_date
 FROM customer
-INNER JOIN payment ON payment.customer_id = customer.customer_id;
+INNER JOIN payment 
+ON customer.customer_id = payment.customer_id;
 ```
 | customer_id	| store_id | first_name	| last_name	| address_id | active |
 |-------------|----------|------------|-----------|------------|--------|
