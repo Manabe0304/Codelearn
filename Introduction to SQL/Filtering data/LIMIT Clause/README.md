@@ -34,3 +34,31 @@ LIMIT 3;
 | 1	| ACADEMY DINOSAUR | 2006	| 6	| 0.99 | 
 | 2	| ACE GOLDFINGER | 2006	| 3	| 4.99 | 
 | 3	| ADAPTATION HOLES | 2006	| 7 |	2.99 | 
+
+## Lý thuyết
+Trong trường hợp bạn muốn bỏ qua một số hàng trước khi trả về `n` hàng, bạn sử dụng mệnh đề `OFFSET` được đặt sau mệnh đề `LIMIT` như câu lệnh sau:
+```
+SELECT * FROM tên_bảng
+LIMIT n OFFSET m;
+```
+Câu lệnh đầu tiên bỏ qua `m` hàng trước khi trả về `n` hàng được tạo bởi truy vấn. Nếu `m` bằng 0, câu lệnh sẽ hoạt động như không có mệnh đề `OFFSET`.
+
+| film_id	| title	| release_year | rental_duration | rental_rate |
+|---------|-------|--------------|-----------------|-------------|
+| 1	| ACADEMY DINOSAUR | 2006	| 6	| 0.99 | 
+| 2	| ACE GOLDFINGER | 2006	| 3	| 4.99 | 
+| 3	| ADAPTATION HOLES | 2006	| 7 |	2.99 | 
+
+Để truy xuất 4 phim bắt đầu từ sau phim thứ ba và sắp xếp danh sách theo `film_id`, bạn sử dụng cả hai mệnh đề `LIMIT` và `OFFSET` như sau:
+```
+SELECT film_id, title, release_year
+FROM film 
+ORDER BY film_id
+LIMIT 4 OFFSET 3;
+```
+| film_id	| title	| release_year | rental_duration | rental_rate |
+|---------|-------|--------------|-----------------|-------------|
+| 4	| AFFAIR PREJUDICE | 2006	| 5	| 2.99 | 
+| 5	| AFRICAN EGG	| 2006 | 6 | 2.99 | 
+| 6	| AGENT TRUMAN | 2006	| 3	| 2.99 | 
+| 7	| AIRPLANE SIERRA	| 2006 | 6 | 4.99 | 
