@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/233a0d46-b701-42e3-823c-d71cb5330ace)
+![image](https://github.com/user-attachments/assets/bdc66069-a5ca-4037-acf2-49b197c9743d)
 
 
 INNER JOIN:
