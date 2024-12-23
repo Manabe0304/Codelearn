@@ -3,7 +3,7 @@ Cú pháp của hàm `COALESCE` như sau:
 
 `COALESCE (đối_số1, đối_số2, …);`
 
-Hàm `COALESCE` chấp nhận số lượng đối số không giới hạn. Nó trả về đối số đầu tiên không phải là `NUL`L. Nếu tất cả các đối số là `NULL`, hàm `COALESCE` sẽ trả về `NULL`.
+Hàm `COALESCE` chấp nhận số lượng đối số không giới hạn. Nó trả về đối số đầu tiên không phải là `NULL`. Nếu tất cả các đối số là `NULL`, hàm `COALESCE` sẽ trả về `NULL`.
 
 Hàm `COALESCE` đánh giá các đối số từ trái sang phải cho đến khi tìm thấy đối số không `null` đầu tiên. Tất cả các đối số còn lại từ đối số không `null` đầu tiên không được đánh giá.
 
