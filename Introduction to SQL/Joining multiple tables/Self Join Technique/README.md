@@ -75,3 +75,35 @@ Genna Serrano	| Mierya Copeland
 Virgie Wiggins | Mierya Copeland
 Layla Terrell	| Venita Daniel
 Bernardine Houston | Venita Daniel
+
+## Lý thuyết
+So sánh các hàng với cùng một bảng
+
+Xem bảng `film` sau:
+
+film_id	| title	| release_year | length	| rating
+--------|-------|--------------|--------|-------
+1	| ACADEMY DINOSAUR | 2006	| 86 | PG
+2	| ACE GOLDFINGER | 2006	| 86 | G
+3	| ADAPTATION HOLES | 2006	| 50 | NC-17
+4	| AFFAIR PREJUDICE | 2006	| 117	| G
+5	| AFRICAN EGG	| 2006 | 130 | G
+6	| AGENT TRUMAN | 2006	| 169	| PG
+7	| AIRPLANE SIERRA	| 2006 | 63 | PG-13
+8	| AIRPORT POLLOCK	| 2006 | 54	| R
+9	| ALABAMA DEVIL | 2006 | 114 | PG-13
+10 | ALADDIN CALENDAR	| 2006 | 63	| NC-17
+```
+SELECT f1.title, f2.title, f1. length
+FROM film f1
+INNER JOIN film f2 ON f1.film_id <> f2.film_id
+AND f1. length = f2. length;
+```
+Truy vấn này tự join bảng `film` với chính nó. Điều kiện join khớp với các phim khác nhau được chỉ định bởi `film_id` có cùng độ dài.
+
+title	| title	| length
+------|-------|-------
+ACADEMY DINOSAUR	| ACE GOLDFINGER	| 86
+ACE GOLDFINGER	| ACADEMY DINOSAUR	| 86
+AIRPLANE SIERRA	| ALADDIN CALENDAR	| 63
+ALADDIN CALENDAR | AIRPLANE SIERRA	| 63
