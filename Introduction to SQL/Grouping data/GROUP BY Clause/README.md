@@ -44,3 +44,33 @@ customer_id	| sum
 ------------|----
 2	| 29.98
 1	| 20.95
+
+## Lý thuyết
+Để đếm số lượng giao dịch mà mỗi nhân viên đã xử lý, bạn nhóm bảng `payment` dựa trên `staff_id` và sử dụng hàm `COUNT()` để lấy số lượng giao dịch như truy vấn sau:
+```
+SELECT staff_id, COUNT(payment_id)  AS count FROM payment
+GROUP BY staff_id;
+```
+Cho bảng `payment`
+
+payment_id	| customer_id	| staff_id	| rental_id	| amount
+------------|-------------|-----------|-----------|-------
+1	| 1	| 1	76	| 2.99
+2	| 1	| 1	| 573	| 0.99
+3	| 1	| 1	| 1185	| 5.99
+4	| 1	| 2	| 1422	| 0.99
+5	| 1	| 2	| 1476	| 9.99
+6	| 1	| 1	| 1725	| 4.99
+7	| 1	| 1	| 2308	| 4.99
+8	| 1	| 2	| 2363	| 0.99
+9	| 1	| 1	| 3284	| 3.99
+10	| 1	| 2	| 4526	| 5.99
+
+Kết quả đầu ra sẽ là
+
+staff_id	| count
+----------|------
+1	| 6
+2	| 4
+
+Mệnh đề `GROUP BY` sắp xếp kết quả được đặt bởi `staff_id`. Nó giữ tổng số hàng đang chạy và bất cứ khi nào `staff_id` thay đổi, nó sẽ thêm hàng vào tập kết quả được trả về.
