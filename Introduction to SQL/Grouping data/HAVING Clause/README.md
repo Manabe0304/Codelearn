@@ -48,6 +48,7 @@ HAVING SUM(amount) > 4;
 ```
 Kết quả là
 custome_id	| sum
+------------|----
 2	| 6.98
 3	| 4.99
 
