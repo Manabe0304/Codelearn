@@ -18,11 +18,12 @@ Hãy cùng xem bảng `payment`
 
 payment_id	| customer_id	| staff_id	| rental_id	| amount
 ------------|-------------|-----------|-----------|-------
-1	| 1	| 1	76	| 2.99
+1	| 1	| 1	| 76	| 2.99
 2	| 2	| 1	| 320 | 4.99
 3	| 2	| 1	| 435	| 1.99
 4	| 3	| 1	| 1297	| 4.99
 5	| 4	| 1	| 731	| 0.99
+
 Truy vấn sau đây lấy ra tổng số tiền của mỗi khách hàng bằng cách sử dụng mệnh đề `GROUP BY`:
 ```
 SELECT customer_id, SUM(amount)
