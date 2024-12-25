@@ -49,3 +49,40 @@ Kết quả là
 custome_id	| sum
 2	| 6.98
 3	| 4.99
+
+## Lý thuyết
+### Mệnh đề HAVING cùng COUNT
+Hãy tham khảo bảng `customer` sau:
+
+customer_id	| store_id	| first_name	| last_name	| address_id	| active
+------------|-----------|-------------|-----------|-------------|-------
+1	| 1	| MARY	| SMITH	| 5	| 1
+2	| 1	| PATRICIA	| JOHNSON	| 6	| 1
+3	| 1	| LINDA	| WILLIAMS	| 7	| 1
+4	| 2	| BARBARA	| JONES	| 8	| 1
+5	| 1	| ELIZABETH	| BROWN	| 9	| 1
+
+Truy vấn sau đây trả về số lượng khách hàng trên mỗi cửa hàng:
+```
+SELECT store_id, COUNT(customer_id)  AS count
+FROM customer
+GROUP BY store_id
+```
+Đầu ra sẽ là:
+store_id	| count
+----------|------
+1	| 4
+2	| 1
+
+Bạn có thể sử dụng mệnh đề `HAVING` để chọn cửa hàng có nhiều hơn 3 khách hàng:
+```
+SELECT store_id, COUNT(customer_id) AS count
+FROM customer
+GROUP BY store_id
+HAVING COUNT(customer_id) > 3;
+```
+Đầu ra sẽ là
+
+store_id	| count
+----------|------
+1	| 4
