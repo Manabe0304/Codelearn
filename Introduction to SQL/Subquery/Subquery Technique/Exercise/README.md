@@ -8,10 +8,10 @@ Bảng phim là một danh sách của tất cả các bộ phim có khả năng
 
 Bảng `actor` là một danh sách của tất cả các bộ phim có tiềm năng trong kho.
 
-- actor_id (smallint): Khóa chính thay thế được sử dụng để nhận dạng duy nhất từng diễn viên trong bảng.
-- first_name (varchar[50]): Tên của diễn viên.
-- last_name (varchar[50]): Họ của diễn viên.
-- last_update (timestamp): Thời gian mà bản ghi được tạo hoặc cập nhật gần đây nhất.
+- `actor_id (smallint)`: Khóa chính thay thế được sử dụng để nhận dạng duy nhất từng diễn viên trong bảng.
+- `first_name (varchar[50])`: Tên của diễn viên.
+- `last_name (varchar[50])`: Họ của diễn viên.
+- `last_update (timestamp)`: Thời gian mà bản ghi được tạo hoặc cập nhật gần đây nhất.
 
 Bảng `film_actor` được sử dụng để hỗ trợ mối quan hệ nhiều-nhiều giữa phim và diễn viên. Đối với mỗi diễn viên trong một bộ phim nhất định, sẽ có một hàng trong bảng Film_Actor liệt kê diễn viên và phim.
 
