@@ -59,6 +59,7 @@ payment_id	| customer_id	| staff_id	| rental_id	| amount	| payment_date
 9	| 1	| 1	| 3284	| 3.99	| 2005-06-21 06:24:45
 10	| 1	| 2	| 4526	| 5.99	| 2005-07-08 03:17:05
 
+### A) Tìm khách hàng có ít nhất một khoản thanh toán có số tiền lớn hơn 11.
 Câu lệnh sau đây trả về những khách hàng đã trả ít nhất một khoản tiền thuê lớn hơn 11:
 ```
 SELECT first_name,
