@@ -63,7 +63,7 @@ Các toán tử so sánh được dùng để so sánh hai giá trị với nhau
 | >=	| Toán tử lớn hơn hoặc bằng - nếu số hạng bên trái lớn hơn hoặc bằng số hạng bên phải thì kết quả sẽ là True| 7 >= 6 (True)
 | <=	|Toán tử nhỏ hơn hoặc bằng - nếu số hạng bên trái nhỏ hơn hoặc bằng số hạng bên phải thì kết quả sẽ là True| 5 <= 6 (true)
 
-Ví dụ cụ thể với Python:
+### Ví dụ cụ thể với Python:
 ```
 x = 10
 y = 12
@@ -84,3 +84,44 @@ x != y is True
 x >= y is False
 x <= y is True
 ```
+
+## Lý thuyết
+Toán tử gán thường được dùng để gán giá trị của vế phải sang cho vế trái. Bảng thể hiện các toán tử gán:
+
+| Loại toán tử	| Mục đích	| Cách dùng
+|-|-|-|
+| =	| Gán giá trị của vế phải cho vế trái |x = 5
+| +=	| Tăng vế trái một phần bằng vế phải sau đó gán giá trị cho vế trái |x += 5 <br> (x = x + 5)
+| -=	| Giảm vế trái một phần bằng giá trị vế phải sau đó gán kết quả cho vế trái | x -= 5 <br> (x = x - 5)
+| *=	| Nhân giá trị của vế trái với vế phải sau đó gán kết quả cho vế trái | x *= 5 <br> (x = x * 5)
+| /=	| Chia giá trị của vế trái cho vế phải sau đó gán kết quả cho vế trái | x /= 5 <br> (x = x / 5)
+| %=	| Chia giá trị của vế trái cho vế phải sau đó gán phần dư cho vế trái (chia lấy dư) | x %= 5 <br> (x = x % 5)
+| //=	| Phép chia lấy phần nguyên. | x //= 5 <br> (x = x // 5)
+| **=	| Lấy vế trái lũy thừa với bậc là giá trị vế phải sau đó gán kết quả cho vế trái | x **= 5 <br> (x = x ** 5)
+| &=	| Thực hiện phép toán của toán tử AND cho 2 vế sau đó gán cho vế trái| x &= 5 <br> (x = x & 5)
+| \|=	| Thực hiện phép toán của toán tử OR cho 2 vế sau đó gán cho vế trái | x \|= 5 <br> (x = x \| 5)
+| ^=	| Thực hiện phép toán của toán tử XOR 2 vế sau đó gán cho vế trái | x ^= 5 <br> (x = x ^ 5)
+| >>=	| Thực hiện phép toán dịch phải của vế phải sau đó gán cho vế trái | x >>= 5 <br> (x = x >> 5)
+| <<=	| Thực hiện phép toán dịch trái của vế phải sau đó gán cho vế trái | x <<= 5 <br> (x = x << 5)
+
+### Ví dụ
+```
+x = 15
+y = 4
+
+print('x + y =', x + y)
+print('x - y =', x - y)
+print('x * y =', x * y)
+print('x / y =', x / y)
+print('x // y =', x // y)
+print('x ** y =', x ** y)
+```
+Kết quả khi chạy chương trình:
+```
+x + y = 19
+x - y = 11
+x * y = 60
+x / y = 3.75
+```
+x // y = 3
+x ** y = 50625
