@@ -122,6 +122,60 @@ x + y = 19
 x - y = 11
 x * y = 60
 x / y = 3.75
-```
 x // y = 3
 x ** y = 50625
+```
+
+## Lý thuyết
+Toán tử membership là toán tử dùng để kiểm xem một giá trị có nằm trong giá trị khác hay không.
+
+`in` và `not in` là hai toán tử membership với cách sử dụng rất đơn giản. Ví dụ bạn có thể kiểm tra xem một xâu có nằm trong một xâu khác không giống như sau:.
+```
+print("Code" in "Codelearn")
+print("Py" not in "Python")
+```
+Kết quả khi chạy chương trình:
+```
+True
+False
+```
+
+## Lý thuyết
+Toán tử định danh (`identity`) được dùng để xác định xem hai biến có đang trỏ tới cùng một đối tượng hay không. Với các kiểu dữ liệu như `int, str, float,...` thì toán tử này tương đương với toán tử `==`. Ta sẽ được học về sự khác nhau giữa hai toán tử này ở các bài sau.
+
+Trong Python, `is` và `is not` chính là 2 toán tử định danh. Ví dụ:
+```
+a = 5
+b = 7
+print(a is b)
+print(a is not b)
+```
+Kết quả khi chạy chương trình:
+```
+False
+True
+```
+
+## Lý thuyết
+Toán tử logical (logic) `not`, `or` và `and` là các toán tử được dùng để kết hợp các mệnh đề lại với nhau. Bảng thể hiện toán tử logic:
+
+| Loại toán tử	| Mục đích	| Cách dùng
+|-|-|-|
+| and	| Trả về True nếu hai điều kiện cùng đúng, ngược lại trả về False | a and b
+| or	| Trả về True nếu có ít nhất một điều kiện đúng, ngược lại nếu cả hai điều kiện đều sai thì trả về False | a or b
+| not	| Toán tử phủ định, toán tử này trả về False nếu điều kiện là True, ngược lại nếu điều kiện là False thì trả về True | not a
+
+Ví dụ với Python:
+```
+x = True
+y = False
+print(x and y)
+print(x or y)
+print(not x)
+```
+Kết quả khi chạy chương trình:
+```
+False
+True
+False
+```
