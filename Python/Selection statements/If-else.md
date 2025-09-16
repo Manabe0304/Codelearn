@@ -51,3 +51,28 @@ if a != b:
 else:
 	print("Both a and b are equal")
 ```
+
+## Lý thuyết
+Nếu bên trong mệnh đề `else` có mệnh đề `if` giống như chương trình sau:
+```
+a = int(input())
+b = int(input())
+if a == b:
+    print("a = b")
+else:
+    if a > b:
+        print("a > b")
+    else:
+        print("a < b")
+```
+thì ta có thể rút gọn thành `elif` giống như sau:
+```
+a = int(input())
+b = int(input())
+if a == b:
+    print("a = b")
+elif a > b:
+    print("a > b")
+else:
+    print("a < b")
+```
