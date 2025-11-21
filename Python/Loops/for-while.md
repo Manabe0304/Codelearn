@@ -1,5 +1,5 @@
 ## Lý thuyết
-Để làm được bài này bạn cần biết cách sử dụng vòng lặp trong Python. Vòng lặp được hiểu đơn giản là lặp lại một đoạn code nhiều lần. Trong Python có hỗ trợ 2 loại vòng lặp là vòng lặp `while` và vòng lặp `for`.
+Để làm được bài này ta cần biết cách sử dụng vòng lặp trong Python. Vòng lặp được hiểu đơn giản là lặp lại một đoạn code nhiều lần. Trong Python có hỗ trợ 2 loại vòng lặp là vòng lặp `while` và vòng lặp `for`.
 
 ### Vòng lặp while
 
