@@ -149,3 +149,49 @@ Kết quả khi chạy chương trình:
 ```
 Codelearn
 ```
+
+## Lý thuyết
+Ta có thể lấy ra một ký tự trong chuỗi thông qua chỉ số giống như lấy ra một phần tử trong list. Ví dụ:
+```
+name = "Codelearn"
+print(name[0])
+```
+Kết quả khi chạy chương trình:
+```
+C
+```
+Ngoài ra, trong ngôn ngữ lập trình Python ta còn có thể truy xuất tới chỉ số âm của chuỗi. Vị trí -1 sẽ thể hiện cho ký tự cuối cùng trong chuỗi, tương tự với -2, -3, -4, ... Ví dụ:
+```
+s = 'Python String'
+# s[0] là phần tử đầu tiên trong chuỗi
+print(s[0])
+# s[-1] là phần tử đầu cuối cùng trong chuỗi
+print(s[-1])
+# s[-2] là phần tử đứng trước phần tử cuối cùng trong chuỗi
+print(s[-2])
+```
+Kết quả khi chạy chương trình:
+```
+P
+g
+n
+```
+### Cắt chuỗi trong Python (Slice a string in Python)
+
+Để lấy ra một dãy các kí tự liên tiếp trong chuỗi, ta có thể sử dụng phương pháp slicing giống như sau:
+```
+s = 'Python String'
+print(s[0:2])
+print(s[3:5])
+print(s[7:])
+print(s[:6])
+print(s[7:-4])
+```
+Kết quả khi chạy chương trình:
+```
+Py
+ho
+String
+Python
+St
+```
