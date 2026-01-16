@@ -166,3 +166,29 @@ Co
 Code
 learn
 ```
+
+## Lý thuyết
+Như ta đã được học về kiểu dữ liệu ký tự, kiểu ký tự bản chất cũng là một kiểu số nguyên, do đó ta có thể duyệt và hiển thị các ký tự từ `'0' -> '9'`, từ `'a' -> 'z'` bằng vòng lặp giống như sau:
+```
+using System;
+
+namespace String {
+    class Program {
+        static void Main(string[] args) {
+			for (char c = '0'; c <= '9'; c++) {
+				Console.Write(c);
+			}
+			Console.WriteLine();
+			for (char c = 'a'; c <= 'z'; c++) {
+				Console.Write(c);
+			}
+		}
+    }
+}
+```
+Kết quả khi chạy chương trình:
+```
+0123456789
+abcdefghijklmnopqrstuvwxyz
+```
+Do đó ta có thể lặp qua các ký tự số từ `'0'` tới `'9'` và sử dụng phương thức `Replace()` để loại bỏ các số.
