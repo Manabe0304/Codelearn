@@ -90,3 +90,25 @@ Kết quả khi chạy chương trình:
 1.3333333333333333
 1.3333333333333333
 ```
+
+## Lý thuyết
+Kiểu ký tự trong C# là kiểu dữ liệu chỉ lưu trữ được 1 ký tự trong bảng mã UTF-16, ký tự này có thể là một chữ cái `(a, b, c, ... x, y, z)`, một chữ số  `(0, 1, 2,..., 9)`, một phép toán `(+, -, *, /)` hay một ký tự bất kỳ khác `(!, &, ...)`.
+
+Biến kiểu ký tự được khai báo bằng từ khóa `char` (`char` là viết tắt của **character**). Ví dụ chương trình tạo và hiển thị biến kiểu ký tự:
+```
+using System;
+
+namespace Variable {
+    class Program {
+        static void Main(string[] args) {
+            // Khai báo biến c kiểu ký tự và gán giá trị cho c = ký tự 'x'
+            char c = 'x';
+            Console.WriteLine(c);
+        }
+    }
+}
+```
+Kết quả khi chạy chương trình:
+```
+x
+```
