@@ -105,3 +105,51 @@ Kết quả khi chạy chương trình:
 3
 ```
 Việc tách chương trình ra thành các phương thức nhỏ thay vì viết tất cả các đoạn code trong phương thức `Main()` sẽ giúp ta tái sử dụng lại được code, làm cho chương trình trở nên đơn giản, dễ hiểu hơn.
+
+## Lý thuyết
+Phương thức đệ quy là phương thức mà gọi tới chính nó, ví dụ một phương thức đệ quy sẽ trông giống như sau:
+```
+public static void Recurse() {
+    ...
+    Recurse();
+    ...
+}
+```
+Do tính chất tự gọi lại chính nó nên để tránh việc chạy không bao giờ dừng ta luôn cần có điểm dừng (điểm dừng được hiểu đơn giản là tới một lúc nào đó, phương thức đệ quy sẽ không gọi lại chính nó nữa).
+
+Mô tả phương thức đệ quy tính `5!`:
+```
+factorial(5)
+= 5 * factorial(4)
+= 5 * 4 * factorial(3)
+= 5 * 4 * 3 * factorial(2)
+= 5 * 4 * 3 * 2 * factorial(1)
+= 5 * 4 * 3 * 2 * 1
+= 120
+```
+Điểm dừng ở ví dụ trên chính là khi đầu vào của phương thức `factorial` bằng `1` thì phương thức `factorial` sẽ trả về `1` thay vì gọi tiếp tới chính nó.
+
+Để hiểu rõ hơn ta hãy xem ví dụ tiếp theo về phương thức đệ quy tính tổng các số từ `1` tới `n`:
+```
+using System;
+
+namespace Method {
+    class Program {
+        public static int Sum(int n) {
+            if(n == 0) {
+                return 0;
+            }
+            return n + Sum(n - 1);
+        }
+
+        static void Main(string[] args) {
+            Console.WriteLine(Sum(10));
+        }
+    }
+}
+```
+Kết quả khi chạy chương trình:
+```
+55
+```
+Điểm dừng ở đây chính là khi `n = 0` thì phương thức `Sum` sẽ trả về `0` thay vì gọi tiếp tới chính nó.
